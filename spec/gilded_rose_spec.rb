@@ -97,6 +97,85 @@ describe GildedRose do
 
     end
 
+    describe "checking instances of" do
+      describe "#isAgedBrie?" do
+        it "should return true if it is aged brie" do
+          aged_brie = Item.new("Aged Brie", 5, 5)
+          items = [aged_brie]
+          g_r = GildedRose.new(items)
+          expect(g_r.isAgedBrie?(aged_brie)).to eq true
+        end
+        it "should return false otherwise" do
+          not_aged_brie = Item.new("Not Aged Brie", 5, 5)
+          items = [not_aged_brie]
+          g_r = GildedRose.new(items)
+          expect(g_r.isAgedBrie?(not_aged_brie)).to eq false
+        end
+      end
+
+      describe "#isSulfuras?" do
+        it "should return true if the item is a sulfuras" do
+          sulfura = Item.new("Sulfuras, test", 80, 4)
+          items = [sulfura]
+          g_r = GildedRose.new(items)
+          expect(g_r.isSulfuras?(sulfura)).to eq true
+        end
+        it "should return false otherwise" do
+          not_sulfura = Item.new("test", 30, 4)
+          items = [not_sulfura]
+          g_r = GildedRose.new(items)
+          expect(g_r.isSulfuras?(not_sulfura)).to eq false
+        end
+      end
+
+      describe "#isBackstagePass?" do
+        it "should return true if the item is a backstage pass/passes" do
+          backstage_pass = Item.new("Backstage pass for test", 30, 20)
+          backstage_passes = Item.new("Backstage passes for test", 30, 20)
+          items = [backstage_pass, backstage_passes]
+          g_r = GildedRose.new(items)
+          expect(g_r.isBackstagePass?(backstage_pass)).to eq true
+          expect(g_r.isBackstagePass?(backstage_passes)).to eq true
+        end
+        it "should return false otherwise" do
+          not_backstage_passes = Item.new("Not for test", 30, 20)
+          items = [not_backstage_passes]
+          g_r = GildedRose.new(items)
+          expect(g_r.isBackstagePass?(not_backstage_passes)).to eq false
+        end
+      end
+
+      describe "#isConjured?" do
+        it "should return true if the item is conjured" do
+          conjured_item = Item.new("Conjured item", 30, 20)
+          items = [conjured_item]
+          g_r = GildedRose.new(items)
+          expect(g_r.isConjured?(conjured_item)).to eq true
+        end
+        it "should return false otherwise" do
+          not_conjured_item = Item.new("Not for test", 30, 20)
+          items = [not_conjured_item]
+          g_r = GildedRose.new(items)
+          expect(g_r.isConjured?(not_conjured_item)).to eq false
+        end
+      end
+
+      describe "#isNormalItem?" do
+        it "should return true if the item is normal" do
+          normal_item = Item.new("bread", 30, 20)
+          items = [normal_item]
+          g_r = GildedRose.new(items)
+          expect(g_r.isNormalItem?(normal_item)).to eq true
+        end
+        it "should return false otherwise" do
+          not_normal_item = Item.new("Sulfuras, spade", 4, 2)
+          items = [not_normal_item]
+          g_r = GildedRose.new(items)
+          expect(g_r.isNormalItem?(not_normal_item)).to eq false
+        end
+      end
+    end
+
 
   end
 
