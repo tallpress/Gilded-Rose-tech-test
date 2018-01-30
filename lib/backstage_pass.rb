@@ -17,14 +17,15 @@ class BackstagePass < Item
   private
 
   def quality_alter
-    if @item.sell_in > 10
-      @item.quality + 1
-    elsif @item.sell_in <= 10
-      @item.quality += 2
+    if @item.sell_in < 0
+      @item.quality = MIN_QUALITY
     elsif @item.sell_in <= 5
       @item.quality += 3
-    else
-      @item.quality = MIN_QUALITY
+    elsif @item.sell_in <=10
+      @item.quality += 2
+    elsif @item.sell_in > 10
+      @item.quality += 1
     end
   end
+
 end

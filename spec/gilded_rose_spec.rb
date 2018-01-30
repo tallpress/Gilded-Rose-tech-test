@@ -81,7 +81,7 @@ describe GildedRose do
         expect(items[0].sell_in).to eq 8
       end
 
-      it "should increase in quality at tripple rate ( < 5 days but > 2 days) as approaches sell by approaches" do
+      it "should increase in quality at tripple rate ( < 5 days) as approaches sell by approaches" do
         items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 5, 10)]
         GildedRose.new(items).update_quality()
         expect(items[0].quality).to eq 13

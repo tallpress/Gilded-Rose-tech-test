@@ -16,8 +16,17 @@ class NormalItem < Item
 
   private
   def quality_alter
-    if @item.quality > MIN_QUALITY
+    if @item.sell_in > 0
       @item.quality -= 1
+    elsif @item.sell_in <= 0
+      @item.quality -= 2
+    end
+    limit_quality_to_zero()
+  end
+
+  def limit_quality_to_zero
+    if @item.quality <= 0
+      @item.quality = 0
     end
   end
 
