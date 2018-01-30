@@ -1,6 +1,6 @@
 require File.join(File.dirname(__FILE__), 'item')
 
-class NormalItem < Item
+class SulfurasItem < Item
   attr_accessor :item
   MAX_QUALITY = 80
 

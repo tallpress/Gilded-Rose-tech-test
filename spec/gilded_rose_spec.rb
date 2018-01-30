@@ -176,7 +176,16 @@ describe GildedRose do
       end
     end
 
-
+    describe "#categorised_items" do
+      it "should change each item in the array to the item required" do
+        items = [Item.new("Aged Brie", 5, 5), Item.new("Sulfuras, test", 5,3),
+          Item.new("Backstage pass, test", 5, 5)]
+        g_r = GildedRose.new(items)
+        g_r.categorise_items()
+        expect(g_r.categorised_items[0].class).to eq AgedBrie
+        expect(g_r.categorised_items[1].class).to eq SulfurasItem
+        expect(g_r.categorised_items[2].class).to eq BackstagePass
+      end
+    end
   end
-
 end

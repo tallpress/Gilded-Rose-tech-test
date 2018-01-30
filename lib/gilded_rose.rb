@@ -1,6 +1,9 @@
 require File.join(File.dirname(__FILE__), 'item')
 require File.join(File.dirname(__FILE__), 'aged_brie')
-
+require File.join(File.dirname(__FILE__), 'backstage_pass')
+require File.join(File.dirname(__FILE__), 'conjured_item')
+require File.join(File.dirname(__FILE__), 'normal_item')
+require File.join(File.dirname(__FILE__), 'sulfuras_item')
 
 class GildedRose
 
@@ -8,8 +11,11 @@ class GildedRose
   LEGENDARY_ITEM_MAX_QUALIRY = 80
   ITEM_MIN_QUALITY = 0
 
+  attr_accessor :categorised_items
+
   def initialize(items)
     @items = items
+    @categorised_items = []
   end
 
   def update_quality
@@ -59,8 +65,26 @@ class GildedRose
     end
   end
 
-
-
+  def categorise_items
+    @items.each do |item|
+      if isAgedBrie?(item)
+        to_add = AgedBrie.new(item)
+        @categorised_items.push(to_add)
+      elsif isSulfuras?(item)
+        to_add = SulfurasItem.new(item)
+        @categorised_items.push(to_add)
+      elsif isBackstagePass?(item)
+        to_add = BackstagePass.new(item)
+        @categorised_items.push(to_add)
+      elsif isConjured?(item)
+        to_add = ConjuredItem.new(item)
+        @categorised_items.push(to_add)
+      elsif isNormalItem?(item)
+        to_add = NormalItem.new(item)
+        @categorised_items.push(to_add)
+      end
+    end
+  end
 
   def isAgedBrie?(item)
     item.name == 'Aged Brie' ? true : false
