@@ -65,6 +65,20 @@ class GildedRose
     end
   end
 
+  # def update_quality
+  #   @categorised_items.each do |item|
+  #     item.alter()
+  #   end
+  # end
+
+  def print
+    @categorised_items.each do |item|
+      p item
+      item.alter()
+      p item
+    end
+  end
+
   def categorise_items
     @items.each do |item|
       if isAgedBrie?(item)
