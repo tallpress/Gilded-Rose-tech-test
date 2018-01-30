@@ -1,10 +1,15 @@
 require File.join(File.dirname(__FILE__), 'item')
 
-module AgedBrie
+class AgedBrie < Item
+  attr_accessor :item
 
-  def alter(item)
-    item.quality += 1
-    item.sell_in -= 1
+  def initialize(item)
+    @item = item
+  end
+
+  def alter
+    @item.quality += 1
+    @item.sell_in -= 1
   end
 
 end
