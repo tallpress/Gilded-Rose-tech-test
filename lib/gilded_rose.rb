@@ -3,6 +3,7 @@ require File.join(File.dirname(__FILE__), 'aged_brie')
 
 
 class GildedRose
+  include AgedBrie
 
   NORMAL_ITEM_MAX_QUALITY = 50
   LEGENDARY_ITEM_MAX_QUALIRY = 80
