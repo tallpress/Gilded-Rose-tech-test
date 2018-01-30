@@ -2,6 +2,7 @@ require File.join(File.dirname(__FILE__), 'item')
 
 class NormalItem < Item
   attr_accessor :item
+  MAX_QUALITY = 50
 
   def initialize(item)
     @item = item
@@ -9,7 +10,7 @@ class NormalItem < Item
 
   def alter
     @item.sell_in -= 1
-    @item.quality -= 1 
+    @item.quality -= 1
   end
 
 end

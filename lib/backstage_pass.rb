@@ -2,6 +2,7 @@ require File.join(File.dirname(__FILE__), 'item')
 
 class BackstagePass < Item
   attr_accessor :item
+  MAX_QUALITY = 50
 
   def initialize(item)
     @item = item
