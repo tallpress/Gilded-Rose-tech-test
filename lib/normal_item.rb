@@ -25,8 +25,8 @@ class NormalItem < Item
   end
 
   def limit_quality_to_zero
-    if @item.quality <= 0
-      @item.quality = 0
+    if @item.quality <= MIN_QUALITY
+      @item.quality = MIN_QUALITY
     end
   end
 

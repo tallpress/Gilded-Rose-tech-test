@@ -9,7 +9,7 @@ class SulfurasItem < Item
   end
 
   def alter
-
+    # doesn't need to change 
   end
 
 end

@@ -29,20 +29,16 @@ class GildedRose
     @items.each do |item|
       if isAgedBrie?(item)
         to_add = AgedBrie.new(item)
-        @categorised_items.push(to_add)
       elsif isSulfuras?(item)
         to_add = SulfurasItem.new(item)
-        @categorised_items.push(to_add)
       elsif isBackstagePass?(item)
         to_add = BackstagePass.new(item)
-        @categorised_items.push(to_add)
       elsif isConjured?(item)
         to_add = ConjuredItem.new(item)
-        @categorised_items.push(to_add)
       elsif isNormalItem?(item)
         to_add = NormalItem.new(item)
-        @categorised_items.push(to_add)
       end
+      @categorised_items.push(to_add)
     end
   end
 
