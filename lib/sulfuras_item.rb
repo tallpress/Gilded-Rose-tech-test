@@ -1,7 +1,9 @@
 require File.join(File.dirname(__FILE__), 'item')
 
 class SulfurasItem < Item
+
   attr_accessor :item
+  
   MAX_QUALITY = 80
 
   def initialize(item)
@@ -9,7 +11,7 @@ class SulfurasItem < Item
   end
 
   def alter
-    # doesn't need to change 
+    # doesn't need to change
   end
 
 end

@@ -6,8 +6,8 @@ class ConjuredItem < Item
   include StandardItemBehaviours
 
   attr_accessor :item
+  
   MAX_QUALITY = 50
-  MIN_QUALITY = 0
 
   def initialize(item)
     @item = item

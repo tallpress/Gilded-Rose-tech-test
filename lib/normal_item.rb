@@ -7,7 +7,6 @@ class NormalItem < Item
 
   attr_accessor :item
   MAX_QUALITY = 50
-  MIN_QUALITY = 0
 
   def initialize(item)
     @item = item
@@ -19,10 +18,11 @@ class NormalItem < Item
   end
 
   private
+
   def alter_quality
-    if @item.sell_in > 0
+    if @item.sell_in > SELL_BY_DATE
       @item.quality -= 1
-    elsif @item.sell_in <= 0
+    elsif @item.sell_in <= SELL_BY_DATE
       @item.quality -= 2
     end
     limit_quality_to_zero()

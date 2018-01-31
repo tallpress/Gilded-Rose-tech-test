@@ -1,6 +1,10 @@
 module StandardItemBehaviours
+
   MIN_QUALITY = 0
+  SELL_BY_DATE = 0
+
   private
+
   def limit_quality_to_zero
     if @item.quality < MIN_QUALITY
       @item.quality = MIN_QUALITY
@@ -10,4 +14,5 @@ module StandardItemBehaviours
   def pass_time
     @item.sell_in -= 1
   end
+  
 end

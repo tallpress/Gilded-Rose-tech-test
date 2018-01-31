@@ -1,5 +1,16 @@
 # Gilded Rose Refactoring Kata
 
+## My Approach
+
+First off, I wrote an extensive list of tests that tested the original update_quality method, so that I could change parts of the code and check it still worked.
+Next, I turned my attention to how I intended to restructure the old code. I decided on going with an inheritance approach, whereby each different type of item inherits the Item classes structure, but each one has a different method named 'alter'. I then intended on categorising the @items list so that each of the items in the list had the addition property of being wrapped in the appropriate category, i named this list @categorised_items.
+I then wanted to use the 'alter' method on each of the categorised_items, using duck typing I was able to cut the update-quality method down considerably.
+I then exported my categorising methods into a module, so that any future changes would only have to take place in the module, and the Gilded Rose class would not have to be touched. In a similar manner, I exported the standard_item_behaviours into a module in order to DRY out the code. 
+I am aware that my method only accounts for the possibility of conjured normal items, however the spec left both options open, so I went for the option of only allowing conjured normal categorised_items.
+One of my biggest intentions with the refactor was to make as extendable as possibile, thus allowing for new types of items to be added with ease.
+
+## Kata Information
+
 This Kata was originally created by Terry Hughes (http://twitter.com/#!/TerryHughes). It is already on GitHub [here](https://github.com/NotMyself/GildedRose). See also [Bobby Johnson's description of the kata](http://iamnotmyself.com/2011/02/13/refactor-this-the-gilded-rose-kata/).
 
 I translated the original C# into a few other languages, (with a little help from my friends!), and slightly changed the starting position. This means I've actually done a small amount of refactoring already compared with the original form of the kata, and made it easier to get going with writing tests by giving you one failing unit test to start with. I also added test fixtures for Text-Based approval testing with TextTest (see [the TextTests](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/master/texttests))

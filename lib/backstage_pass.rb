@@ -4,11 +4,10 @@ require File.join(File.dirname(__FILE__), 'standard_item_behaviours')
 
 class BackstagePass < Item
   include StandardItemBehaviours
-  
+
   attr_accessor :item
 
   MAX_QUALITY = 50
-  MIN_QUALITY = 0
 
   def initialize(item)
     @item = item
@@ -22,7 +21,7 @@ class BackstagePass < Item
   private
 
   def alter_quality
-    if @item.sell_in < 0
+    if @item.sell_in < SELL_BY_DATE
       @item.quality = MIN_QUALITY
     elsif @item.sell_in <= 5
       @item.quality += 3

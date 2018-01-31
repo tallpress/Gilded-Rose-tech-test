@@ -6,8 +6,8 @@ class AgedBrie < Item
   include StandardItemBehaviours
 
   attr_accessor :item
+
   MAX_QUALITY = 50
-  MIN_QUALITY = 0
 
   def initialize(item)
     @item = item
@@ -26,7 +26,7 @@ class AgedBrie < Item
   end
 
   def change_qual
-    if @item.sell_in < 0
+    if @item.sell_in < SELL_BY_DATE
       @item.quality += 2
     else
       @item.quality += 1
