@@ -11,12 +11,12 @@ class ConjuredItem < Item
 
   def alter
     @item.sell_in -= 1
-    quality_alter()
+    alter_quality()
   end
 
   private
 
-    def quality_alter
+    def alter_quality
       if @item.quality > MIN_QUALITY + 2
         @item.quality -= 2
       end

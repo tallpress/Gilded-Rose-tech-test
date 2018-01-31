@@ -7,8 +7,6 @@ require File.join(File.dirname(__FILE__), 'sulfuras_item')
 
 module Categoriser
 
-  attr_accessor :categorised_items
-
   def categorise_items
     @items.each do |item|
       if isAgedBrie?(item)

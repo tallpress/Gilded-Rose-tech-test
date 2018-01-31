@@ -11,11 +11,11 @@ class NormalItem < Item
 
   def alter
     @item.sell_in -= 1
-    quality_alter()
+    alter_quality()
   end
 
   private
-  def quality_alter
+  def alter_quality
     if @item.sell_in > 0
       @item.quality -= 1
     elsif @item.sell_in <= 0

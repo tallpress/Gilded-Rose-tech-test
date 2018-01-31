@@ -10,12 +10,12 @@ class AgedBrie < Item
   end
 
   def alter
-    quality_alter()
     @item.sell_in -= 1
+    alter_quality()
   end
 
   private
-  def quality_alter
+  def alter_quality
     if @item.quality < MAX_QUALITY
       change_qual()
     end

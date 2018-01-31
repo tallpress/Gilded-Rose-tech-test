@@ -11,12 +11,12 @@ class BackstagePass < Item
 
   def alter
     @item.sell_in -= 1
-    quality_alter();
+    alter_quality();
   end
 
   private
 
-  def quality_alter
+  def alter_quality
     if @item.sell_in < 0
       @item.quality = MIN_QUALITY
     elsif @item.sell_in <= 5
