@@ -1,7 +1,12 @@
 require File.join(File.dirname(__FILE__), 'item')
+require File.join(File.dirname(__FILE__), 'standard_item_behaviours')
+
 
 class BackstagePass < Item
+  include StandardItemBehaviours
+  
   attr_accessor :item
+
   MAX_QUALITY = 50
   MIN_QUALITY = 0
 
@@ -10,8 +15,8 @@ class BackstagePass < Item
   end
 
   def alter
-    @item.sell_in -= 1
-    alter_quality();
+    pass_time()
+    alter_quality()
   end
 
   private

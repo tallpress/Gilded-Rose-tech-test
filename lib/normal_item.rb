@@ -1,6 +1,10 @@
 require File.join(File.dirname(__FILE__), 'item')
+require File.join(File.dirname(__FILE__), 'standard_item_behaviours')
 
 class NormalItem < Item
+
+  include StandardItemBehaviours
+
   attr_accessor :item
   MAX_QUALITY = 50
   MIN_QUALITY = 0
@@ -10,7 +14,7 @@ class NormalItem < Item
   end
 
   def alter
-    @item.sell_in -= 1
+    pass_time()
     alter_quality()
   end
 
@@ -22,12 +26,6 @@ class NormalItem < Item
       @item.quality -= 2
     end
     limit_quality_to_zero()
-  end
-
-  def limit_quality_to_zero
-    if @item.quality <= MIN_QUALITY
-      @item.quality = MIN_QUALITY
-    end
   end
 
 end
