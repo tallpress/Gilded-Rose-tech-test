@@ -14,8 +14,8 @@ class ConjuredItem < Item
     quality_alter()
   end
 
+  private
 
-    private
     def quality_alter
       if @item.quality > MIN_QUALITY + 2
         @item.quality -= 2

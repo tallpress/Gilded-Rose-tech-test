@@ -6,10 +6,6 @@ class GildedRose
 
   include Categoriser
 
-  NORMAL_ITEM_MAX_QUALITY = 50
-  LEGENDARY_ITEM_MAX_QUALIRY = 80
-  ITEM_MIN_QUALITY = 0
-
   attr_accessor :categorised_items
 
   def initialize(items)
